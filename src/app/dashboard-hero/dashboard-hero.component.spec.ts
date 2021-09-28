@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { first } from 'rxjs/operators';
 
@@ -35,10 +35,10 @@ describe('DashboardHeroComponent', () => {
     expect(heroEl.textContent).toContain(expectedPipedName);
   });
  
-  it('should raise selected event when clicked (triggerEventHandler)', () => {
+  it('should raise selected event when clicked (triggerEventHandler)', fakeAsync(() => {
     let selectedHero: Hero | undefined;
     component.selected.pipe(first()).subscribe((hero: Hero) => selectedHero = hero);  
     heroDe.triggerEventHandler('click', null);
     expect(selectedHero).toEqual(expectedHero);
-  });
+  }));
 });

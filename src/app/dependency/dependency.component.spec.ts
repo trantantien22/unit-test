@@ -42,18 +42,18 @@ describe('DependencyComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it("get data from subcribe", () => {
+  it("get data from subcribe", fakeAsync(() => {
     // define mock fuction for getData of service
     mockServive.getData.and.returnValue(of(1));
     component.getData();
     expect(component.data).toEqual(1);
-  })
-  it("update name from service", () => {
+  }))
+  it("update name from service", fakeAsync(() => {
     const text = "new random text";
     service.name = text;
     fixture.detectChanges();
     expect(el.textContent).toEqual(text);
-  })
+  }))
   it("async binding", fakeAsync(() => {
     const text = 'new random';
     //redefind mock function getProfile

@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { fakeAsync, TestBed } from '@angular/core/testing';
 
 import { CustomServiceService } from './custom-service.service';
 import { ValueService } from './value.service';
@@ -23,7 +23,7 @@ describe('CustomServiceService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-  it('#getValue should return stubbed value from a spy', () => {
+  it('#getValue should return stubbed value from a spy', fakeAsync(() => {
     const stubValue = 'stub value';
     valueServiceSpy.getValue.and.returnValue(stubValue);
     expect(service.getValue())
@@ -32,5 +32,5 @@ describe('CustomServiceService', () => {
       .toBe(1, 'spy method was called once');
     expect(valueServiceSpy.getValue.calls.mostRecent().returnValue)
       .toBe(stubValue);
-  });
+  }));
 });
