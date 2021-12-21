@@ -30,6 +30,7 @@ describe('FormComponent', () => {
   it("should not call on submit if form invalid",()=>{
     spyOn(component,'onSubmit').and.callFake(()=>{});
     let btn = fixture.debugElement.query(By.css("button")).nativeElement;
+    fixture.detectChanges();
     btn.click();
     expect(component.onSubmit).toHaveBeenCalledTimes(0);
   })

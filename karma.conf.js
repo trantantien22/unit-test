@@ -27,6 +27,20 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    coverageReporter: {
+      dir: 'coverage/',
+      reporters: [
+        { type: "html", subdir: "html" }
+      ],
+      check: {
+        global: {
+          statements: 80,
+          branches: 80,
+          functions: 80,
+          lines: 80
+        }
+      }
+    }
   });
 };

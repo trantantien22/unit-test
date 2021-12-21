@@ -9,6 +9,7 @@ describe('BindingComponent', () => {
   let el : HTMLElement;
   let input : HTMLInputElement;
   let btn : HTMLElement;
+  
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -17,7 +18,7 @@ describe('BindingComponent', () => {
     })
     .compileComponents();
   });
-
+  
   beforeEach(() => {
     fixture = TestBed.createComponent(BindingComponent);
     component = fixture.componentInstance;
@@ -26,15 +27,18 @@ describe('BindingComponent', () => {
     fixture.detectChanges();
   });
 
+  
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it("titile should be abc",()=>{
+  it("title should be abc",()=>{
     expect(el.textContent).toEqual('abc');
   })
   it('update input value',()=>{
     //set input value, then dispatchEvent to fired event
     input.value = "test";
+    expect(component.title).toEqual('abc'); // not dispatch event
     input.dispatchEvent(new Event('input'));
     // after dispatch value in component is changed but in HTLM is not change
     expect(component.title).toEqual('test');

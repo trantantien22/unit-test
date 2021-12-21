@@ -12,7 +12,7 @@ export class Hero {
   styleUrls: [ './dashboard-hero.component.css' ]
 })
 export class DashboardHeroComponent {
-  @Input() hero!: Hero;
+  @Input() hero: Hero;
   @Output() selected = new EventEmitter();
   click() { this.selected.emit(this.hero); }
 }

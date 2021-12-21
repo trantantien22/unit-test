@@ -12,7 +12,7 @@ export class CustomServiceService {
     return this.valueService.getValue();
   }
   getData() {
-    return of(Math.random());
+    return new Promise(reslove => reslove(Math.random()));
   }
   getProfile() {
     return of(Math.random());

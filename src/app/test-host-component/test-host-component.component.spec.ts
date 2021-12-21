@@ -16,7 +16,7 @@ describe('TestHostComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TestHostComponent);
     component = fixture.componentInstance;
-    heroEl = fixture.nativeElement.querySelector('.hero');
+    heroEl = fixture.nativeElement.querySelector('.hero'); // class hero from hero-dashboard component
     fixture.detectChanges();
   });
 
